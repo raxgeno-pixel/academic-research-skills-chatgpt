@@ -65,7 +65,7 @@ jobs:
           if [ "$PYTEST_EXIT" -ne 0 ] && [ "$PYTEST_EXIT" -ne 5 ]; then
             echo "::error::pytest collection failed on PR head (exit $PYTEST_EXIT)"
             cat pytest-collect.err >&2 || true
-            tail -20 pytest-collect.txt >&2 || true
+            cat pytest-collect.txt >&2 || true >&2 || true
             exit 1
           fi
           # grep -c exits 1 when there are zero matches — tolerate ONLY that;
@@ -117,7 +117,7 @@ jobs:
           if [ "$PYTEST_EXIT" -ne 0 ] && [ "$PYTEST_EXIT" -ne 5 ]; then
             echo "::error::pytest collection failed on base (exit $PYTEST_EXIT)"
             cat pytest-collect.err >&2 || true
-            tail -20 pytest-collect.txt >&2 || true
+            cat pytest-collect.txt >&2 || true >&2 || true
             exit 1
           fi
           set +e
