@@ -1,0 +1,18 @@
+{
+  "name": "academic-research-skills",
+  "version": "3.25.8",
+  "description": "ChatGPT adaptation of Academic Research Skills with five ChatGPT-native workflows, mapped dependencies, transactional SQLite workflow orchestration, and an MCP v2.3.0 backend with reproducible SDK/Docker CI tests. HTTP transport uses a loopback-default Host/Origin allowlist; public deployment still requires OAuth 2.1 and TLS.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Academic Research Skills",
+    "shortDescription": "Research, write, review, and screen academic literature",
+    "longDescription": "A human-in-the-loop academic research toolkit with five workflows: deep research, academic paper writing, manuscript review, end-to-end research pipeline, and systematic-review screening. Preserves source provenance and requires researcher verification.",
+    "developerName": "Academic Research Skills",
+    "category": "Education",
+    "capabilities": [
+      "Research",
+      "Writing",
+      "Analysis"
+    ]
+  }
+}
