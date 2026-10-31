@@ -1,0 +1,16 @@
+[project]
+name = "academic-research-skills-mcp"
+version = "0.2.4"
+description = "Academic Research Skills MCP utilities and transactional workflow orchestration"
+requires-python = ">=3.11"
+dependencies = [
+  "mcp==2.3.0",
+  "PyYAML>=6.0,<7",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10"]
+
+[tool.pytest.ini_options]
+pythonpath = [".", "../skills"]
+testpaths = ["tests"]

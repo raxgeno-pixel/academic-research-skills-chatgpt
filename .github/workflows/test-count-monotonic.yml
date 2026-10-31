@@ -56,7 +56,7 @@ jobs:
           # from the v3.9.4.2 cycle, originally in PR #153 commit 8121dfa
           # before being reverted in 4abf9de while #154 was still open).
           set +e
-          pytest --collect-only -q > pytest-collect.txt 2> pytest-collect.err
+          pytest --collect-only -q --import-mode=importlib > pytest-collect.txt 2> pytest-collect.err
           PYTEST_EXIT=$?
           set -e
           # Exit 5 = pytest "no tests collected"; tolerable for degenerate
@@ -65,7 +65,7 @@ jobs:
           if [ "$PYTEST_EXIT" -ne 0 ] && [ "$PYTEST_EXIT" -ne 5 ]; then
             echo "::error::pytest collection failed on PR head (exit $PYTEST_EXIT)"
             cat pytest-collect.err >&2 || true
-            tail -20 pytest-collect.txt >&2 || true
+            cat pytest-collect.txt >&2 || true >&2 || true
             exit 1
           fi
           # grep -c exits 1 when there are zero matches — tolerate ONLY that;
@@ -111,13 +111,13 @@ jobs:
           # monotonic comparison (head >= base) vacuously pass and hiding
           # genuine drift. Fail the gate on real collection errors instead.
           set +e
-          pytest --collect-only -q > pytest-collect.txt 2> pytest-collect.err
+          pytest --collect-only -q --import-mode=importlib > pytest-collect.txt 2> pytest-collect.err
           PYTEST_EXIT=$?
           set -e
           if [ "$PYTEST_EXIT" -ne 0 ] && [ "$PYTEST_EXIT" -ne 5 ]; then
             echo "::error::pytest collection failed on base (exit $PYTEST_EXIT)"
             cat pytest-collect.err >&2 || true
-            tail -20 pytest-collect.txt >&2 || true
+            cat pytest-collect.txt >&2 || true >&2 || true
             exit 1
           fi
           set +e

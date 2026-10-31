@@ -1,0 +1,21 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "academic-research-skills",
+  "version": "3.25.8",
+  "description": "ChatGPT adaptation of Academic Research Skills with five ChatGPT-native workflows, mapped dependencies, transactional SQLite workflow orchestration, and an MCP v2.3.0 backend with reproducible SDK/Docker CI tests. HTTP transport uses a loopback-default Host/Origin allowlist; public deployment still requires OAuth 2.1 and TLS.",
+  "author": {
+    "name": "Cheng-I Wu",
+    "url": "https://github.com/Imbad0202"
+  },
+  "homepage": "https://github.com/Imbad0202/academic-research-skills",
+  "repository": "https://github.com/Imbad0202/academic-research-skills",
+  "license": "CC-BY-NC-4.0",
+  "keywords": [
+    "academic",
+    "research",
+    "literature-review",
+    "systematic-review",
+    "academic-writing",
+    "peer-review"
+  ]
+}
