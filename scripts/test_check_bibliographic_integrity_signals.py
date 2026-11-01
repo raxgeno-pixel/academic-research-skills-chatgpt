@@ -118,6 +118,16 @@ def test_legacy_fixture_byte_identity_is_frozen() -> None:
         assert hashlib.sha256((fixture_root / name).read_bytes()).hexdigest() == expected_sha256
 
 
+def test_byte_bound_fixtures_enforce_lf_checkout() -> None:
+    attributes = (REPO_ROOT / ".gitattributes").read_text(encoding="utf-8")
+    for pattern in (
+        "scripts/fixtures/bibliographic_integrity_signals/*.json text eol=lf",
+        "scripts/fixtures/tortured_phrase_screening/snapshot.json text eol=lf",
+        "scripts/fixtures/tortured_phrase_screening/snapshot_manifest.json text eol=lf",
+    ):
+        assert pattern in attributes
+
+
 def test_closed_schema_rejects_undeclared_field() -> None:
     fixture = _fixture("retraction.json")
     fixture["undeclared"] = True
